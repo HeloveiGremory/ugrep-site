@@ -1,0 +1,127 @@
+/* =========================
+   Основное меню
+========================= */
+.main-navigation {
+    border-top: 3px solid var(--color-bg-accent);
+    border-bottom: 3px solid var(--color-bg-accent);
+    font-size: 17px;
+    height: 50px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+.main-navigation a {
+    color: var(--color-header-footer-text);
+    text-decoration: none;
+}
+
+.main-navigation a[href="#"] {
+    cursor: default;
+}
+
+.main-navigation .menu {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation .menu-item {
+    position: relative;
+}
+
+.main-navigation .menu-item > a {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.main-navigation .menu-item > a:hover {
+    color: var(--color-background);
+}
+
+/* =========================
+   Стрелки подменю
+========================= */
+.main-navigation .menu-item-has-children > a::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.25s ease;
+}
+
+/* Цвет стрелки для первого и второго уровня */
+.main-navigation .menu-item-has-children > a::after {
+    background-image: url("../assets/img/icons/arrow-white.svg");
+}
+
+.main-navigation .sub-menu .menu-item-has-children > a::after {
+    background-image: url("../assets/img/icons/arrow-black.svg");
+}
+
+/* Поворот стрелки при открытом подменю */
+.main-navigation .menu-item-has-children > a.active::after {
+    transform: rotate(180deg);
+}
+
+/* =========================
+   Подменю
+========================= */
+.main-navigation .sub-menu {
+    z-index: 99;
+    display: none;
+    min-width: 150px;
+    flex-direction: column;
+    gap: 4px;
+    background-color: white;
+    border: 1px solid var(--color-bg-accent);
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    /* скрыто по умолчанию */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* видимое подменю через JS */
+.main-navigation .sub-menu.visible {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ссылки в подменю */
+.main-navigation .menu-item .sub-menu a {
+    color: black;
+    padding: 0;
+}
+
+/* =========================
+   Позиционирование подменю второго и третьего уровня
+========================= */
+.main-navigation .sub-menu .sub-menu {
+    top: 0;
+    left: calc(100% + 10px);
+}
+
+/* Смещение при нехватке места */
+.main-navigation .sub-menu.open-left {
+    left: auto !important;
+    right: calc(100% + 10px);
+}
+
+.main-navigation .sub-menu.open-up {
+    top: auto;
+    bottom: 0;
+}

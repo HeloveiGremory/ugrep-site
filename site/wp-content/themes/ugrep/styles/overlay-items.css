@@ -1,0 +1,59 @@
+.overlay-items {
+    
+}
+
+.languages {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    bottom: 50%;
+    left: 30px;
+}
+
+.lang-btn {
+    padding: 4px;
+    /* width: 25px;
+    height: 25px; */
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: white; /* акцент */
+    color: black;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+  color: #0056b3; /* активный язык чуть темнее */
+}
+
+.up-button {
+    position: fixed;
+    z-index: 100;
+    bottom: 10%;
+    right: 5%;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-image: url(../assets//img/icons/arrow-black.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.up-button:hover {
+    cursor: pointer;
+}
+
+.up-button_hide {
+    display: none;
+}

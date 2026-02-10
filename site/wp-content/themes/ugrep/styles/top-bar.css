@@ -1,0 +1,36 @@
+.top-bar {
+    color: var(--color-text-light);
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.top-bar .symbolism {
+    display: flex;
+    gap: 10px;
+}
+
+.top-bar .symbolism img {
+    height: 60px;
+    width: fit-content;
+}
+
+.top-bar .site-logo img {
+   height: 60px;
+}
+
+.top-bar .contacts {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar .contact-item {
+    flex: 1;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.top-bar .contact-item img {
+    height: 25px;
+}
